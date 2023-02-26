@@ -43,16 +43,6 @@
             }
           ]
         },
-		{
-          "step": "adbShell",
-          "input": [
-            {
-              "command": "mount -o rw,remount /system",
-              "asRoot": true,
-			  "timeOutInSec": 60
-            }
-          ]
-        },
 		
 		{
           "step": "adbShell",
