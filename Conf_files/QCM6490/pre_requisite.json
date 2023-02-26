@@ -1,0 +1,2432 @@
+{
+    "description": "Axiom Device Config Template",
+    "attempts": 1,
+    "steps": [
+		{
+          "step": "adbDisableVerity",
+          "input": [
+            {
+              "waitForBootComplete": true,
+              "adbDeviceType": "Default",
+              "resetTypeOnRetry": "adb",
+			  "asRoot": true
+            }
+          ]
+        },
+        {
+          "step": "reset",
+          "input": [
+            {
+              "type": "auto",
+              "waitTimeInSec": 300,
+              "socNumber": "Primary"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "remount",
+              "asRoot": true,
+			  "timeOutInSec": 120
+            }
+          ]
+        },	
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "mount -o rw,remount /vendor",
+              "asRoot": true,
+			  "timeOutInSec": 60
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "mount -o rw,remount /system",
+              "asRoot": true,
+			  "timeOutInSec": 60
+            }
+          ]
+        },
+		
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "mount -o rw,remount /vendor/firmware_mnt",
+              "asRoot": true,
+			  "timeOutInSec": 60
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\apttestclients\\QCM6490\\LA\\apttest_client",
+              "destLocation": "/vendor/bin"
+			  
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/bin/apttest_client",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\aptcryptotestapp.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\aptcryptotestapp64.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\apttestapp.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\apttestapp64.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },	
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\secure_ui_sample.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\secure_ui_sample64.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\IAGAANAA\\smplap32.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\IAGAANAA\\smplap64.mbn",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /data/smp*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\aptcryptotestapp64.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\apttestapp64.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/firmware_mnt/image/*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\kernel-tests\\QCM6490\\LA\\data\\kernel-tests\\qcedev/.",
+              "destLocation": "/data/kernel-tests"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\km_certs\\km_gk_unit_tests\\.",
+              "destLocation": "/data/nativetest64/vendor/qti_keymaster_tests"
+            }
+          ]
+        },	
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\km_certs\\sample_tee_keybox.xml",
+              "destLocation": "/data"
+            }
+          ]
+        },			
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp1.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcp2p2.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcptest.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\hdcpsrm.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/bin/hdcp*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/firmware_mnt/image",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap32.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\smplap64.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/bin/smplap*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+	
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\widevine.mbn",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b00",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b01",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b02",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b03",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b04",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b05",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b06",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.b07",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\widevine.mdt",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\IAGAANAA\\widevine.mbn",
+              "destLocation": "/vendor/firmware"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /vendor/firmware/widevine*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\cmnlib64.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km4.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\km41.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\keymaster.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\kernel-tests\\QCM6490\\LA\\.",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /data/kerne*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /data/kernel-tests/*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\vfp_test\\QCM6490\\LA\\vfptest",
+              "destLocation": "/data/kernel-tests"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /data/kernel-tests/vfp*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },		
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_sample64.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secure_ui_test.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b00",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b01",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b02",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b03",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b04",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b05",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b06",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.b07",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz_apps",
+              "sourceLocation": "qtee_tas\\build\\ms\\bin\\PIL_IMAGES\\SPLITBINS_IAGAANAA\\secureindicator2_32.mdt",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\ssg\\securemsm\\trustzone\\qsapps\\bintestapp\\compiledBinaries\\mbnv6\\bintestapp32.mbn",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+			  "subsystemName": "tz",
+              "sourceLocation": "trustzone_images\\ssg\\securemsm\\trustzone\\qsapps\\bintestapp\\compiledBinaries\\mbnv6\\bintestapp64.mbn",
+              "destLocation": "/vendor/firmware_mnt/image"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\smcinvoke_clients\\QCM6490\\smcinvoke_vendor_client",
+              "destLocation": "/data"
+            }
+          ]
+        },
+		{
+          "step": "adbShell",
+          "input": [
+            {
+              "command": "chmod 777 /data/smp*",
+              "asRoot": true,
+			  "timeOutInSec": 30
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\data\\nativetest\\cdm_extended_duration_test",
+              "destLocation": "/data/nativetest"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\data\\nativetest\\request_license_test",
+              "destLocation": "/data/nativetest"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\data\\nativetest\\oemcrypto_test",
+              "destLocation": "/data/nativetest"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\bin\\InstallKeybox",
+              "destLocation": "/vendor/bin"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib\\libminkdescriptor.so",
+              "destLocation": "/vendor/lib"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib\\libminksocket.so",
+              "destLocation": "/vendor/lib"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib\\libqcbor.so",
+              "destLocation": "/vendor/lib"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib\\libqrtr.so",
+              "destLocation": "/vendor/lib"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib64\\libminkdescriptor.so",
+              "destLocation": "/vendor/lib64"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib64\\libminksocket.so",
+              "destLocation": "/vendor/lib64"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib64\\libqcbor.so",
+              "destLocation": "/vendor/lib64"
+            }
+          ]
+        },
+		{
+          "step": "adbPush",
+          "input": [
+            {
+              "sourceLocation": "\\\\twinkle\\APT_IOT\\SSG_CPT\\SSG\\BVT\\SUPPORT\\hy11_libs\\QCM6490\\Android_S\\vendor\\lib64\\libqrtr.so",
+              "destLocation": "/vendor/lib64"
+            }
+          ]
+        }
+	]	
+}
